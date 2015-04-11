@@ -1,0 +1,24 @@
+input_data = '665a5b41125f574141535557125b4112545d401276535756535e474112715d40425d4053465b5d5c125d5c5e4b1c127d474012505e475742405b5c464112545d4012465a5712714b505d4055125340571242405d46575146575612455b465a12531242534141455d40561c12665a53461242534141455d4056125b4112035703025754070b500b03000b57510a5357500a5305500a56030b025107'
+l = len(input_data)
+
+for i in xrange(0, 256):
+	cipher=input_data
+	plain=''
+	while cipher!='':
+		temp=cipher[:2]
+		cipher=cipher[2:]
+		temp = int(temp, 16)
+		temp ^= i
+		plain += chr(temp)
+  
+	if i==50:
+	  	print ''
+	  	print 'i =', i, chr(i)
+	  	print 'plaintext'
+	  	print plain
+
+print 'finish!!'
+
+#run the python code
+#the answer appears at i = 50
+#flag : 1e10ef59b9129ec8aeb8a7b8d190c5
