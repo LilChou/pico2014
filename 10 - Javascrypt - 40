@@ -1,0 +1,11 @@
+i = 1
+x = 160
+n = 5493
+while i <= 25:
+    x = (x * i) % n
+    i+=1
+print x
+print "flag_", x;
+
+#just run it
+#flag : flag_ 4608
