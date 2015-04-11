@@ -1,0 +1,11 @@
+umm
+
+finding ascii in hex mode 
+
+for instance : ascii code for 'c' is 99, in hex mode is 63(99 = 16*6+3)
+
+or just try it!!
+
+
+
+flag : cveR!ed0
