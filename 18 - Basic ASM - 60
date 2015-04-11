@@ -1,0 +1,27 @@
+# This file is in AT&T syntax - see http://www.imada.sdu.dk/Courses/DM18/Litteratur/IntelnATT.htm
+# and http://en.wikipedia.org/wiki/X86_assembly_language#Syntax. Both gdb and objdump produce
+# AT&T syntax by default.
+MOV $23268,%ebx   <- ebx=23268
+MOV $20690,%eax   <- eax=20690
+MOV $22000,%ecx   <- ecx=22000
+CMP %eax,%ebx     <- compare eax ebx
+JL L1             <- JL ie jump if less, but ebx>eax
+JMP L2            <- Jump because ebx>eax
+L1:
+IMUL %eax,%ebx
+ADD %eax,%ebx
+MOV %ebx,%eax
+SUB %ecx,%eax
+JMP L3
+L2:
+IMUL %eax,%ebx    <- multiply eax*ebx and store in ebx  
+SUB %eax,%ebx     <- ebx = ebx-eax
+MOV %ebx,%eax     <- eax = ebx
+ADD %ecx,%eax     <- eax = eax+ecx
+L3:
+NOP               <- do nothing
+
+23268*20690 - 20690 + 22000 = 481416230
+
+
+FLAG : 481416230
