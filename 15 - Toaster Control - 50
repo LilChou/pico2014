@@ -4,8 +4,8 @@ try the commands
 we can found that
 the url has a form of "http://web2014.picoctf.com/toaster-control-1040194/handler.php?action=command"
 
-so we change the action to "Shutdown & Turn Off"
-but it doesn't fot the rule of url encoding
+so we change the command to "Shutdown & Turn Off"
+but it doesn't fit the rule of url encoding
 
 so i read "http://www.url-encode-decode.com/" for reference
 and found the correct url="http://web2014.picoctf.com/toaster-control-1040194/handler.php?action=Shutdown+%26+Turn+Off"
