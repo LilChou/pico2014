@@ -1,0 +1,13 @@
+find out that we need to change
+
+symbolic link
+
+at ~
+type 'ln -s /home/daedalus/flag.txt'
+type 'ln -s /home/daedalus/supercow'
+
+
+then 'mv flag.txt flag.cow'
+'./supercow flag.cow'
+
+the flag : cows_drive_mooooving_vans
