@@ -1,0 +1,21 @@
+from the c code, we knew that we have to find the location of the variable “secret”
+
+so, here’s the solution
+
+first we use gdb to find the location of the variable
+
+we type “gdb ./write_right” to enter the gdb environment
+
+and then type “p &secret” to get the address -- 804a03c
+
+
+
+after getting the address
+
+we run the write_right and tell it we want to write thing to address 804a03c
+
+and we write 1337beef on it
+
+
+
+finally we get the flag “arbitrary_write_is_always_right”
