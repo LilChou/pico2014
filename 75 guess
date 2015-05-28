@@ -1,0 +1,27 @@
+in the code we can find that
+
+fgets(name, sizeof(name), stdin);
+printf(name);
+
+so we can exploit the printf function
+
+we can give it a %i to know what is in the stack next
+
+we connect by "nc vuln2014.picoctf.com 4546"
+
+and print something in
+
+then we can find out that the number it's asking
+
+might be the fourth in the stack 
+
+so when it ask for our name to insult us
+
+we gave him "%i %i %i %i"
+
+and the fourth num is the number it's asking
+
+after giving the num
+
+we will get the flag : leak_the_seakret
+
