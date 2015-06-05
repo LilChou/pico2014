@@ -1,0 +1,15 @@
+from the question we know that
+
+we might need to decompile the apk file
+
+and we find the website : http://www.decompileandroid.com/
+
+we decompiled it and download the files
+
+unzip it
+
+and at the src/picoapp453/picoctf/com/picoapp/ToasterActivity.java file
+
+we saw that it tells us the flag is 
+
+ : what_does_the_logcat_say
